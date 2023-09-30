@@ -17,7 +17,7 @@ def handle_start(message):
     full_name = f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
     welcome_message = f"Assalomu alaykum {full_name}!"
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    options = ["💳 To'lov qilish", "📑 To'liq ma'lumotlar", "☎️ Biz bilan bog'lanish", "📷 Screenshot yuborish", "📚 Full documents"]
+    options = ["💳 To'lov qilish", "📑 Ma'lumotlar", "📷 Screenshot yuborish", "☎️ Biz bilan bog'lanish", "📚 To'liq ma'lumotlar"]
     keyboard.add(*[types.KeyboardButton(option) for option in options])
     bot.send_message(message.chat.id, welcome_message)
     bot.send_message(message.chat.id, "⬇️ Xizmat turini tanlang:", reply_markup=keyboard)
@@ -27,12 +27,12 @@ def handle_payment_option(message):
     with open('photo.jpg', 'rb') as photo:
         bot.send_photo(message.chat.id, photo, caption="💳 Uzcard : 6262720079127836 Turkona Amilova\n💳 VISA : 4023060209774784 Turkona Amilova")
 
-@bot.message_handler(func=lambda message: message.text == "📚 Full documents")
+@bot.message_handler(func=lambda message: message.text == "📚 To'liq ma'lumotlar")
 def handle_full_documents(message):
-    full_documents_link = "https://telegra.ph/Top-25-anime-03-15"
+    full_documents_link = "https://telegra.ph/Mobilografiya-nima-Va-kursimda-nimalar-orgataman-Qisqacha-bilib-oling-04-17"
     bot.send_message(message.chat.id, full_documents_link)
 
-@bot.message_handler(func=lambda message: message.text == "📑 To'liq ma'lumotlar")
+@bot.message_handler(func=lambda message: message.text == "📑 Ma'lumotlar")
 def handle_info_option(message):
     with open('picture.jpg', 'rb') as photo:
         bot.send_photo(message.chat.id, photo, caption="📹 Online mobilografiya intensiv kursi\n📹 Kurs Turkona Amilova mentorligida olib boriladi")
