@@ -11,11 +11,11 @@ def handle_start(message):
     user = message.from_user
     full_name = f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
     welcomes_message = "https://telegra.ph/Mobilografiya-nima-Va-kursimda-nimalar-orgataman-Qisqacha-bilib-oling-04-17"
-    welcome_message = f"Assalomu alaykum {full_name}\n\n{welcomes_message}!"
+    welcome_message = f"Assalomu alaykum <b>{full_name}</b>\n\n{welcomes_message}!"
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     options = ["💳 To'lov qilish", "📑 Ma'lumotlar", "📷 Screenshot yuborish", "☎️ Biz bilan bog'lanish", "📚 To'liq ma'lumotlar"]
     keyboard.add(*[types.KeyboardButton(option) for option in options])
-    bot.send_message(message.chat.id, welcome_message)
+    bot.send_message(message.chat.id, welcome_message, parse_mode='HTML')
     bot.send_message(message.chat.id, "<b>Xizmat turini tanlang:</b>", parse_mode='HTML', reply_markup=keyboard)
 
 
