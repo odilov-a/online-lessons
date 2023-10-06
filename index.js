@@ -1,6 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
 const TOKEN = '6649575383:AAFSpP5Fmwcl4SjAnglEWJlYmD-xf3CO4R4';
-const TARGET_GROUP_CHAT_ID = '-1001986050755'
+const TARGET_GROUP_CHAT_ID = '-1001986050755';
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 
@@ -9,7 +9,7 @@ bot.onText(/\/start/, (msg) => {
   const full_name = user.last_name ? `${user.first_name} ${user.last_name}` : user.first_name;
   const welcomes_message = "https://telegra.ph/Mobilografiya-nima-Va-kursimda-nimalar-orgataman-Qisqacha-bilib-oling-04-17";
   const welcome_message = `Assalomu alaykum <b>${full_name}</b>\n\n${welcomes_message}!`;
-  
+
   const keyboard = {
     reply_markup: {
       resize_keyboard: true,
@@ -21,7 +21,7 @@ bot.onText(/\/start/, (msg) => {
     },
     parse_mode: 'HTML'
   };
-  
+
   bot.sendMessage(msg.chat.id, welcome_message, keyboard);
 });
 
