@@ -19,7 +19,8 @@ def handle_start(message):
     welcome_message = f"Assalomu alaykum <b>{full_name}</b> \n\nhttps://telegra.ph/Mobilografiya-nima-Va-kursimda-nimalar-orgataman-Qisqacha-bilib-oling-04-17"
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     options = ["💳 To'lov qilish", "📑 Ma'lumotlar", "☎️ Biz bilan bog'lanish", "📷 Screenshot yuborish", "📚 To'liq ma'lumotlar"]
-
+    with open('photos.png', 'rb') as photo_file:
+        bot.send_photo(message.chat.id, photo_file)
 
     keyboard.add(*[types.KeyboardButton(option) for option in options])
     bot.send_message(message.chat.id, welcome_message, parse_mode='HTML')
