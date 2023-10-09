@@ -1,8 +1,10 @@
 import telebot
 import os
 from telebot import types
+
 BOT_TOKEN = '6649575383:AAFSpP5Fmwcl4SjAnglEWJlYmD-xf3CO4R4'
 TARGET_GROUP_CHAT_ID = '-1001986050755'
+
 UPLOAD_FOLDER = "public"
 bot = telebot.TeleBot(BOT_TOKEN)
 if not os.path.exists(UPLOAD_FOLDER):
@@ -58,7 +60,7 @@ def handle_uploaded_photo(message):
 def process_and_return_to_menu(message, photo_path, user):
     if message.contact:
         phone_number = message.contact.phone_number
-        caption = f"Yuboruvchi: {user.first_name} {user.last_name}\nUsername: @{user.username}\nTelefon raqami: {phone_number}"
+        caption = f"Yuboruvchi: {user.first_name} {user.last_name}\nUsername: @{user.username}\nTelefon raqami: https://t.me/{phone_number}/"
         with open(photo_path, 'rb') as uploaded_photo:
             bot.send_photo(TARGET_GROUP_CHAT_ID, uploaded_photo, caption=caption)
         bot.send_message(message.chat.id, "<b>Barcha xabarlar yuborildi. Admin javobini kuting!</b>", parse_mode='HTML')
