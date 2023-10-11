@@ -63,7 +63,7 @@ def process_and_return_to_menu(message, photo_path, user):
         caption = f"Yuboruvchi: {user.first_name} {user.last_name}\nUsername: @{user.username}\nTelefon raqami: https://t.me/+{phone_number}/"
         with open(photo_path, 'rb') as uploaded_photo:
             bot.send_photo(TARGET_GROUP_CHAT_ID, uploaded_photo, caption=caption)
-        bot.send_message(message.chat.id, "<b>Barcha xabarlar yuborildi. Admin javobini kuting!</b>", parse_mode='HTML')
+        bot.send_message(message.chat.id, "<b>Barcha xabarlar yuborildi. Admin javobini kuting!\n Admin : @Online_mobilografiya</b>", parse_mode='HTML')
     send_main_menu(message.chat.id)
 def send_main_menu(chat_id):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
